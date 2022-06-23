@@ -2,30 +2,6 @@ import java.util.Date;
 
 public class Bibliotheksdienste implements UserInterface{
 
-    public void main(String[] args){
-        int aktion = chooseAction();
-
-        switch (aktion){
-            case 1 :
-                addNewAusleiher();
-                break;
-            case 2:
-                addToBibliotheksbestand();
-                break;
-            case 3:
-                borrowBook();
-                break;
-            case 4:
-                extendBook();
-                break;
-            case 5:
-                returnBook();
-                break;
-            default:
-                System.out.println("Sie haben eine invalide Eingabe getätigt, bitte starten Sie das Programm neu.");
-                break;
-        }
-    }
 
     @Override
     public int chooseAction() {
