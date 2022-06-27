@@ -1,15 +1,16 @@
 public class Main {
     public static void main(String[] args){
+        int userID = 0;
+        Persistenzschicht persistenzschicht = new Persistenzschicht();
         Bibliotheksdienste dienst = new Bibliotheksdienste();
 
         int aktion = dienst.chooseAction();
-
         switch (aktion){
             case 1 :
-                dienst.addNewAusleiher();
+                dienst.addNewAusleiher(++userID);
                 break;
             case 2:
-                dienst.addToBibliotheksbestand();
+                dienst.addToBibliotheksbestand(persistenzschicht);
                 break;
             case 3:
                 dienst.borrowBook();

@@ -4,8 +4,8 @@ public interface UserInterface {
     Scanner scanner = new Scanner(System.in);
 
     int chooseAction();
-    Ausleiher addNewAusleiher();
-    void addToBibliotheksbestand();
+    Ausleiher addNewAusleiher(int userID);
+    void addToBibliotheksbestand(Persistenzschicht persistenzschicht);
     boolean borrowBook();
     Date extendBook();
     boolean returnBook();

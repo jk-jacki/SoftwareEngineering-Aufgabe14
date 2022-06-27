@@ -21,13 +21,39 @@ public class Bibliotheksdienste implements UserInterface{
     }
 
     @Override
-    public Ausleiher addNewAusleiher() {
-        return null;
+    public Ausleiher addNewAusleiher(int userID) {
+        System.out.println("Um einen neuen Ausleiher anzulegen, werden folgende Eingaben benötigt:");
+        System.out.println("Name: ");
+        String name = scanner.next();
+        System.out.println("Alter: ");
+        int alter = scanner.nextInt();
+        String fakultät = scanner.next();
+
+        Ausleiher neuerAusleiher = new Ausleiher(userID, name, alter, fakultät);
+        return neuerAusleiher;
     }
 
     @Override
-    public void addToBibliotheksbestand() {
+    public void addToBibliotheksbestand(Persistenzschicht persistenzschicht) {
+        System.out.println("Um ein neues Buch anzulegen, werden folgende Eingaben benötigt:");
 
+        System.out.println("Titel: ");
+        String titel = scanner.next();
+        System.out.println("Verlag: ");
+        String verlag = scanner.next();
+        System.out.println("Autor: ");
+        String autor = scanner.next();
+        System.out.println("ISBN: ");
+        int isbn = scanner.nextInt();
+        System.out.println("Kategorie: ");
+        String kategorie = scanner.next();
+        System.out.println("ID: ");
+        int id = scanner.nextInt();
+        System.out.println("Anzahl: ");
+        int anzahl = scanner.nextInt();
+
+        Buch neuanschaffung = new Buch(anzahl, kategorie, id, titel, verlag, autor, isbn);
+        persistenzschicht.artikelHinzufügen(neuanschaffung);
     }
 
     @Override

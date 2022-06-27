@@ -2,14 +2,16 @@ import java.util.ArrayList;
 
 public class Bibliothek {
 
-    private ArrayList<Medium> bibliotheksbestand;
-    private ArrayList<Ausleiher> registrierteAusleiher;
+    //private ArrayList<Medium> bibliotheksbestand;
+    //private ArrayList<Ausleiher> registrierteAusleiher;
+    private Persistenzschicht persistenzschicht;
     private ArrayList<Mitarbeiter> mitarbeiter;
     private ArrayList<Medium> anschaffungsListe;
 
-    Bibliothek(ArrayList<Medium> bibliotheksbestand, ArrayList<Ausleiher> registrierteAusleiher, ArrayList<Mitarbeiter> mitarbeiter, ArrayList<Medium> anschaffungsListe){
-        this.bibliotheksbestand = bibliotheksbestand;
-        this.registrierteAusleiher = registrierteAusleiher;
+    Bibliothek(Persistenzschicht persistenzschicht, ArrayList<Mitarbeiter> mitarbeiter, ArrayList<Medium> anschaffungsListe){
+        //this.bibliotheksbestand = bibliotheksbestand;
+        //this.registrierteAusleiher = registrierteAusleiher;
+        this.persistenzschicht = persistenzschicht;
         this.mitarbeiter = mitarbeiter;
         this.anschaffungsListe = anschaffungsListe;
     }
