@@ -11,9 +11,35 @@ public class LibaryServices {
 
     public LibaryServices(){}
 
+    public void chooseAction(){
+        System.out.println("Please choose an action of the following choices:" );
+        String[] choices = {"Add new user", "Add new book", "Rent book", "Return book", "Extend return date"};
+        String action = ConsoleInput.choose(choices);
+
+        switch (action){
+            case "Add new user":
+                newUser();
+                break;
+            case "Add new book":
+                addBook();
+                break;
+            case "Rent book":
+                rentBook();
+                break;
+            case "Return book":
+                returnBook();
+                break;
+            case "Extend return date":
+                extendBook();
+                break;
+        }
+
+    }
+
+
     //Add new book
     public void addBook() {
-        System.out.println("=== add new book ===");
+        System.out.println("=== Add new book ===");
         String title = ConsoleInput.insert("enter title: ");
         int isbn = Integer.parseInt(ConsoleInput.insert("enter isbn: "));
         control.addBook(control.newBook(title, isbn));
@@ -37,7 +63,7 @@ public class LibaryServices {
 
     //Return Book
     public void returnBook() {
-        System.out.println("=== return book ===");
+        System.out.println("=== Return book ===");
         System.out.println("select title you want to return: ");
         String[] rentedBooks = control.getRentedBooks();  // all books rented by user
         String toReturn = ConsoleInput.choose(rentedBooks);  // select one
@@ -47,7 +73,7 @@ public class LibaryServices {
 
     //create new User
     public void newUser() {
-        System.out.println("=== create new User ===");
+        System.out.println("=== Create new User ===");
         System.out.println("type *cancel* to exit the user creation");
         // get data for new Sachbearbeiter
         String name = ConsoleInput.insert("Name: ");
@@ -61,7 +87,7 @@ public class LibaryServices {
         User instanz;
         boolean admin = false;
         String[] choices = new String[2];
-        choices[0] = "jes";
+        choices[0] = "yes";
         choices[1] = "no";
         System.out.println("Do you want to give user admin rights?");
         String choice = ConsoleInput.choose(choices);
@@ -76,4 +102,6 @@ public class LibaryServices {
         }
         User.allUsers.put(name, instanz);
     }
+
+    public void extendBook(){}
 }

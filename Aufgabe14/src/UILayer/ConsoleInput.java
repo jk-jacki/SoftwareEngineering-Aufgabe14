@@ -18,7 +18,7 @@ public class ConsoleInput {
         while (!insertRequired) {
             System.out.println("Please insert number: ");
             for (int i = 0; i < alternatives.length; i++) {
-                System.out.println((i + 1) + ") " + alternatives[i]);
+                System.out.println((i + 1) + ": " + alternatives[i]);
             }
             String input = insert("Input: ");
             if (input.equals("")) {
@@ -34,4 +34,6 @@ public class ConsoleInput {
         }
         return output;
     }
+
+
 }

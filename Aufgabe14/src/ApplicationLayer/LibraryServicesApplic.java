@@ -47,6 +47,7 @@ public class LibraryServicesApplic {
         Book toReturn = User.activeUser.rentedBooks.remove(title);
         // put back into library
         Library.inventory.get(title).push(toReturn);
+
     }
 
     public User createUser(String name, String password, boolean admin) {
