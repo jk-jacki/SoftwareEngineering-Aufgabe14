@@ -1,5 +1,8 @@
 package DataLayer;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Calendar;
 import java.util.Date;
 
 public class Book {
@@ -12,6 +15,7 @@ public class Book {
     public Book(String title, int isbn) {
         this.title = title;
         this.isbn = isbn;
+        this.returnDate = Date.from((LocalDate.now().plusMonths(1)).atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
     }
 
     public String getTitle() {
@@ -31,4 +35,12 @@ public class Book {
     }
 
     public Date getReturnDate(){return returnDate;}
+
+    public void setNewReturnDate(){
+        Calendar c = Calendar.getInstance();
+        c.setTime(returnDate);
+        c.add(Calendar.DAY_OF_MONTH, 14);
+        returnDate = c.getTime();
+    }
+
 }

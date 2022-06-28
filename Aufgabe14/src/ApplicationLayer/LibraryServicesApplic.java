@@ -5,6 +5,7 @@ import DataLayer.Library;
 import DataLayer.User;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class LibraryServicesApplic {
     //add new book
@@ -62,5 +63,12 @@ public class LibraryServicesApplic {
             }
         }
         return new User(name, password, admin);
+    }
+
+    public void extendReturnDate(String title){
+        Book extend = Library.inventory.get(title).pop();
+        extend.setNewReturnDate();
+        System.out.print("The new return date is: ");
+        extend.getReturnDate().toString();
     }
 }

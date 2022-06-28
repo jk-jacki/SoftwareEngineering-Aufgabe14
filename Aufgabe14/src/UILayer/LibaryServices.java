@@ -103,5 +103,13 @@ public class LibaryServices {
         User.allUsers.put(name, instanz);
     }
 
-    public void extendBook(){}
+    public void extendBook(){
+        System.out.println("=== Extend book ===");
+        System.out.println("select title you want to extend: ");
+        String[] rentedBooks = control.getRentedBooks();  // all books rented by user
+        String toExtend = ConsoleInput.choose(rentedBooks);  // select one
+        if (!toExtend.equals(""))
+            control.extendReturnDate(toExtend);  // return selected
+
+    }
 }
