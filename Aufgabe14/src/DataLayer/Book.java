@@ -15,7 +15,7 @@ public class Book {
     public Book(String title, int isbn) {
         this.title = title;
         this.isbn = isbn;
-        this.returnDate = Date.from((LocalDate.now().plusMonths(1)).atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
+        this.returnDate =  null;
     }
 
     public String getTitle() {
@@ -36,6 +36,9 @@ public class Book {
 
     public Date getReturnDate(){return returnDate;}
 
+    public void setReturnDate(){
+        returnDate = Date.from((LocalDate.now().plusMonths(1)).atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
+    }
     public void setNewReturnDate(){
         Calendar c = Calendar.getInstance();
         c.setTime(returnDate);

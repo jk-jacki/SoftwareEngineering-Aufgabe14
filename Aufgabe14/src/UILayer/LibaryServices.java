@@ -74,17 +74,16 @@ public class LibaryServices {
     //create new User
     public void newUser() {
         System.out.println("=== Create new User ===");
-        System.out.println("type *cancel* to exit the user creation");
         // get data for new Sachbearbeiter
         String name = ConsoleInput.insert("Name: ");
         if (name.equals("cancel")) {
-            return;
+            chooseAction();
         }
         String password = ConsoleInput.insert("Passwort: ");
         if (password.equals("cancel")) {
             return;
         }
-        User instanz;
+        User instance;
         boolean admin = false;
         String[] choices = new String[2];
         choices[0] = "yes";
@@ -95,12 +94,13 @@ public class LibaryServices {
             admin=true;
         }
         try {
-            instanz = control.createUser(name,password,admin);
+            instance = control.createUser(name,password,admin);
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return;
+
         }
-        User.allUsers.put(name, instanz);
+        User.allUsers.put(name, instance);
     }
 
     public void extendBook(){

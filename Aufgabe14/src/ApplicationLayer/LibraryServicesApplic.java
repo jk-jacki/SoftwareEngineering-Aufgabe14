@@ -6,6 +6,7 @@ import DataLayer.User;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Stack;
 
 public class LibraryServicesApplic {
     //add new book
@@ -34,6 +35,7 @@ public class LibraryServicesApplic {
         }
         // remove from library
         Book rent = Library.inventory.get(title).pop();
+        rent.setReturnDate();
         // add to user stash
         User.activeUser.rentedBooks.put(title, rent);
     }
@@ -66,9 +68,11 @@ public class LibraryServicesApplic {
     }
 
     public void extendReturnDate(String title){
-        Book extend = Library.inventory.get(title).pop();
+        Book extend = User.rentedBooks.get(title);
+        System.out.print("The old return date is: ");
+        System.out.println(extend.getReturnDate().toString());
         extend.setNewReturnDate();
         System.out.print("The new return date is: ");
-        extend.getReturnDate().toString();
+        System.out.println(extend.getReturnDate().toString());
     }
 }

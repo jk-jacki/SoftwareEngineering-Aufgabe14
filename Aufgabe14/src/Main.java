@@ -11,9 +11,9 @@ public class Main {
         User.allUsers.put("admin", user1);
         User.allUsers.put("user", user2);
 
-        Library.addBook(new Book("The Hobbit", 123));
-        Library.addBook(new Book("Lord of the rings", 234));
-        Library.addBook(new Book("Harry Potter", 432));
+        Library.addBook(new Book("Harry Potter", 123));
+        Library.addBook(new Book("Dune", 234));
+        Library.addBook(new Book("Shadow and Bone", 432));
 
         LibaryServices service = new LibaryServices();
 

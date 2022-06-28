@@ -5,7 +5,7 @@ public class User {
     // static attributes
     public static User activeUser;
     public static HashMap<String, User>  allUsers = new HashMap<>();
-    public HashMap<String, Book> rentedBooks = new HashMap<>();
+    public static HashMap<String, Book> rentedBooks = new HashMap<>();
 
     // private attributes
     private String name;
@@ -17,6 +17,7 @@ public class User {
         this.name = name;
         this.password = password;
         this.isAdmin = isAdmin;
+        this.activeUser = this;
     }
 
     // get set
@@ -48,29 +49,18 @@ public class User {
 
     public static String[] getUserNames() {
         return User.allUsers.keySet().toArray(new String[0]);
-        /*
-        // create output array
-        String[] UserNames = new String[allUsers.size()];
-        int i = 0;
-        // extract keys from hashMap
-        for (String name : allUsers.keySet() ) {
-            UserNames[i] = name;
-            i++;
-        }
-        return UserNames;
-        */
     }
     public String getName(String name) {return this.name; }
 
-    public void copyUserStats(User instanz){
-        this.name = instanz.name;
-        this.isAdmin = instanz.isAdmin;
-        this.password = instanz.password;
-        this.rentedBooks = instanz.rentedBooks;
-        if (instanz.name != this.name){
+    public void copyUserStats(User instance){
+        this.name = instance.name;
+        this.isAdmin = instance.isAdmin;
+        this.password = instance.password;
+        this.rentedBooks = instance.rentedBooks;
+        if (instance.name != this.name){
             allUsers.remove(this.name);
-            allUsers.put(instanz.name,this);
-            this.name = instanz.name;
+            allUsers.put(instance.name,this);
+            this.name = instance.name;
         }
     }
 }
