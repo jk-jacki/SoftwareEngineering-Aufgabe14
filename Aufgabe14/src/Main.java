@@ -16,9 +16,11 @@ public class Main {
         Library.addBook(new Book("Harry Potter", 432));
 
         LibaryServices service = new LibaryServices();
-        service.chooseAction();
 
-        System.out.println("Program finished without problems.");
+        while(true)
+            service.chooseAction();
+
+        //System.out.println("Program finished without problems.");
 
     }
 }
