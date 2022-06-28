@@ -1,29 +1,22 @@
-public class Main {
-    public static void main(String[] args){
-        int userID = 0;
-        Persistenzschicht persistenzschicht = new Persistenzschicht();
-        Bibliotheksdienste dienst = new Bibliotheksdienste();
+import DataLayer.Book;
+import DataLayer.Library;
+import DataLayer.User;
 
-        int aktion = dienst.chooseAction();
-        switch (aktion){
-            case 1 :
-                dienst.addNewAusleiher(++userID);
-                break;
-            case 2:
-                dienst.addToBibliotheksbestand(persistenzschicht);
-                break;
-            case 3:
-                dienst.borrowBook();
-                break;
-            case 4:
-                dienst.extendBook();
-                break;
-            case 5:
-                dienst.returnBook();
-                break;
-            default:
-                System.out.println("Sie haben eine invalide Eingabe getätigt, bitte starten Sie das Programm neu.");
-                break;
-        }
+public class Main {
+    public static void main(String[] Args) {
+        System.out.println("hello world!");
+        User user1 = new User("admin", "admin", true);
+        User user2 = new User("user", "user", false);
+        User.allUsers.put("admin", user1);
+        User.allUsers.put("user", user2);
+
+        Book theHobbit = new Book("the Hobbit", 123);
+        Book LOTR = new Book("lord of the rings", 234);
+        Book potter = new Book("Harry Potter", 432);
+        Library.addBook(theHobbit);
+        Library.addBook(LOTR);
+        Library.addBook(potter);
+
+
     }
 }
